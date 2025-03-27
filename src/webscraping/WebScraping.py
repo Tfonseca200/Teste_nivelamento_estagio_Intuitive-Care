@@ -13,8 +13,8 @@ os.makedirs(PASTA_DESTINO, exist_ok=True)
 
 
 def baixarArquivos():
-    resposta = requests.get(URL)
-    soup = BeautifulSoup(resposta.text, "html.parser")
+    response = requests.get(URL)
+    soup = BeautifulSoup(response.text, "html.parser")
     pdfLinks = soup.select("a[href$='.pdf']")
 
     if not pdfLinks:
