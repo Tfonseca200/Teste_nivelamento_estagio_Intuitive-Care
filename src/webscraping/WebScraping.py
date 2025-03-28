@@ -4,15 +4,9 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import zipfile
 
-URL = "https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos"
-PASTA_DESTINO = "downloadsPdf"
-ZIP_DESTINO = "anexos.zip"
 
-
-os.makedirs(PASTA_DESTINO, exist_ok=True)
-
-
-def baixarArquivos():
+def baixarArquivos(URL, PASTA_DESTINO):
+    os.makedirs(PASTA_DESTINO, exist_ok=True)
     response = requests.get(URL)
     soup = BeautifulSoup(response.text, "html.parser")
     pdfLinks = soup.select("a[href$='.pdf']")
@@ -32,7 +26,7 @@ def baixarArquivos():
     print("\n Download dos PDFs concluído!\n")
 
 
-def compactarEmZip():
+def compactarEmZip(ZIP_DESTINO , PASTA_DESTINO):
 
     itens = os.listdir(PASTA_DESTINO)
     arquivos = []
@@ -52,7 +46,3 @@ def compactarEmZip():
                     zipf.write(os.path.join(root, file), file)
             print(f"Arquivo ZIP criado: {ZIP_DESTINO}")
 
-
-if __name__ == "__main__":
-    baixarArquivos()
-    compactarEmZip()
