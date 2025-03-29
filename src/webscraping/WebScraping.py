@@ -5,44 +5,40 @@ from urllib.parse import urljoin
 import zipfile
 
 
-def baixarArquivos(URL, PASTA_DESTINO):
-    os.makedirs(PASTA_DESTINO, exist_ok=True)
-    response = requests.get(URL)
+def download_files(url, destination_folder):
+    """Baixa todos os arquivos PDF da URL especificada para a pasta de destino."""
+    os.makedirs(destination_folder, exist_ok=True)
+    response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
-    pdfLinks = soup.select("a[href$='.pdf']")
+    pdf_links = soup.select("a[href$='.pdf']")
 
-    if not pdfLinks:
-        print("PDF não encontrado")
+    if not pdf_links:
+        print("Nenhum PDF encontrado.")
         return
 
-    for link in pdfLinks:
-        pdfUrl = urljoin(URL, link["href"])
-        fileName = os.path.join(PASTA_DESTINO, pdfUrl.split("/")[-1])
+    for link in pdf_links:
+        pdf_url = urljoin(url, link["href"])
+        file_name = os.path.join(destination_folder, pdf_url.split("/")[-1])
 
-        print(f"Baixando: {fileName}")
-        with open(fileName, "wb") as f:
-            f.write(requests.get(pdfUrl).content)
+        print(f"Baixando: {file_name}")
+        with open(file_name, "wb") as f:
+            f.write(requests.get(pdf_url).content)
 
-    print("\n Download dos PDFs concluído!\n")
+    print("\nDownload dos PDFs concluído!\n")
 
 
-def compactarEmZip(ZIP_DESTINO , PASTA_DESTINO):
+def compress_zip(zip_destination, destination_folder):
+    """Compacta todos os arquivos da pasta de destino em um arquivo ZIP."""
+    items = os.listdir(destination_folder)
+    files = [item for item in items if os.path.isfile(os.path.join(destination_folder, item))]
 
-    itens = os.listdir(PASTA_DESTINO)
-    arquivos = []
-
-    for item in itens:
-        caminhoCompleto = os.path.join(PASTA_DESTINO, item) #Caminho completo
-        if os.path.isfile(caminhoCompleto): #Verifica se é um item
-            arquivos.append(item)
-
-    if not arquivos:
+    if not files:
         print("Nenhum arquivo encontrado para compactar. O ZIP não será criado.")
-    
-    else:
-        with zipfile.ZipFile(ZIP_DESTINO, "w") as zipf:
-            for root, _, files in os.walk(PASTA_DESTINO):
-                for file in files:
-                    zipf.write(os.path.join(root, file), file)
-            print(f"Arquivo ZIP criado: {ZIP_DESTINO}")
+        return
 
+    with zipfile.ZipFile(zip_destination, "w") as zipf:
+        for root, _, file_names in os.walk(destination_folder):
+            for file_name in file_names:
+                zipf.write(os.path.join(root, file_name), file_name)
+
+    print(f"Arquivo ZIP criado: {zip_destination}")
