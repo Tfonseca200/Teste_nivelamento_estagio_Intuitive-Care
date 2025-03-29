@@ -4,27 +4,38 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import zipfile
 
+from numpy.f2py.crackfortran import expectbegin
+
 
 def download_files(url, destination_folder):
-    """Baixa todos os arquivos PDF da URL especificada para a pasta de destino."""
-    os.makedirs(destination_folder, exist_ok=True)
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, "html.parser")
-    pdf_links = soup.select("a[href$='.pdf']")
 
-    if not pdf_links:
-        print("Nenhum PDF encontrado.")
-        return
+    try:
+        os.makedirs(destination_folder, exist_ok=True)
+        response = requests.get(url)
+        response.raise_for_status()
 
-    for link in pdf_links:
-        pdf_url = urljoin(url, link["href"])
-        file_name = os.path.join(destination_folder, pdf_url.split("/")[-1])
+        soup = BeautifulSoup(response.text, "html.parser")
+        pdf_links = soup.select("a[href$='.pdf']")
 
-        print(f"Baixando: {file_name}")
-        with open(file_name, "wb") as f:
-            f.write(requests.get(pdf_url).content)
+        if not pdf_links:
+            print("Nenhum PDF encontrado.")
+            return
 
-    print("\nDownload dos PDFs concluído!\n")
+        for link in pdf_links:
+            pdf_url = urljoin(url, link["href"])
+            file_name = os.path.join(destination_folder, pdf_url.split("/")[-1])
+
+            print(f"Baixando: {file_name}")
+            with open(file_name, "wb") as f:
+                f.write(requests.get(pdf_url).content)
+
+        print("\nDownload dos PDFs concluído!\n")
+
+    except requests.exceptions.RequestException as e:
+        print(f"Erro ao acessar a URL: {e}")
+    except Exception as e:
+        print(f"Ocorre um erro inesperado: {e}")
+
 
 
 def compress_zip(zip_destination, destination_folder):

@@ -1,6 +1,6 @@
 from WebScraping import download_files,compress_zip
 
-URL = "https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos"
+URL = "https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentosss"
 DESTINATION_FILE = "downloadsPdf"
 ZIP_DESTINATION = "anexos.zip"
 
