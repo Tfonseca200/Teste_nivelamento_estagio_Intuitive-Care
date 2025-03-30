@@ -28,5 +28,6 @@ CREATE TABLE IF NOT EXISTS despesas(
     cd_conta_contabil VARCHAR(20),
     descricao VARCHAR(200),
     vl_saldo_inicial DECIMAL(15,2),
-    vl_saldo_final DECIMAL
+    vl_saldo_final DECIMAL(15,2),
+    FOREIGN  KEY (reg_ans) REFERENCES registro_operadoras(registro_ans)
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
