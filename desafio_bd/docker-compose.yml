@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: user
+      MYSQL_DATABASE: testbd
+      MYSQL_PASSWORD: userpassword
+      MYSQL_LOCAL_INFILE: 1
+      MYSQL_INNODB_BUFFER_POOL_SIZE: 512M
+      MYSQL_INNODB_LOG_FILE_SIZE: 128M
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./bd_scripts:/docker-entrypoint-initdb.d
+    command:
+      - --local-infile=1
+      - --max_allowed_packet=32M
+      - --innodb_flush_log_at_trx_commit=1
+      - --performance_schema=OFF
+      - --table_open_cache=200
+      - --innodb_buffer_pool_instances=2
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 1.5G
+        reservations:
+          memory: 1G
+    restart: unless-stopped
+
+volumes:
+  mysql-data:

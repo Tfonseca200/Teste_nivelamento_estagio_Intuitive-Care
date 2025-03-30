@@ -1,0 +1,19 @@
+
+USE testbd;
+
+LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/Relatorio_cadop.csv'
+INTO TABLE registro_operadoras
+CHARACTER SET utf8
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+
+LOAD DATA LOCAL INFILE '/docker-entrypoint-initdb.d/1T2023.csv'
+INTO TABLE despesas
+CHARACTER SET utf8
+FIELDS TERMINATED BY ';'
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
