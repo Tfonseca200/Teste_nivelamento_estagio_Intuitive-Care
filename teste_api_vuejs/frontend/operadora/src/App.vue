@@ -1,22 +1,22 @@
 <template>
   <div class="container">
-    <h2>Buscar Empresas</h2>
+    <h2>Buscar Operadoras</h2>
     <div class="search-bar">
-      <input v-model="termo" type="text" placeholder="Digite o nome" @keyup.enter="buscar" />
+      <input v-model="termo" type="text" placeholder="Digite o nome social ou fantasia da operadora" @keyup.enter="buscar" />
       <button @click="buscar">Buscar</button>
     </div>
 
     <div v-if="loading" class="loading">Carregando...</div>
-    <div v-else-if="error" class="error">{{ error }}</div>
+    <div v-else-if="error" class="error">{{ "Falha ao buscar operadora"}}</div>
     
     <div v-else>
-      <h3 v-if="resultados.length">Resultados:</h3>
+      <h3 v-if="resultados.length">Resultados: {{ resultados.length }}</h3>
       <div v-if="resultados.length" class="result-list">
         <div class="result-card" v-for="(empresa, index) in resultados" :key="index">
           <h4>{{ empresa.Nome_Fantasia }}</h4>
           <p><strong>Razão Social:</strong> {{ empresa.Razao_Social }}</p>
           <p v-for="(valor, chave) in empresa" :key="chave">
-            <strong>{{ chave.replace('_', ' ') }}:</strong> {{ valor }}
+            <strong>{{String(chave).replace (/_/g, ' ') }}:</strong> {{ valor }}
           </p>
         </div>
       </div>
