@@ -14,8 +14,6 @@ O objetivo é avaliar as habilidades técnicas em quatro áreas fundamentais par
 4. **Consumo/Desenvolvimento de APIs**  
 
 
-<br>
-
 ## Testes do desafio de nivelamento
 
 - Teste de WebScraping
@@ -23,9 +21,8 @@ O objetivo é avaliar as habilidades técnicas em quatro áreas fundamentais par
 - Teste de banco de dados
 - Teste de API
 
-<br>
 
-## 💻Tecnologias usadas nos testes
+## ⚙️ Tecnologias usadas nos testes
 
 - Python
 - SQL com MSQL
@@ -33,10 +30,10 @@ O objetivo é avaliar as habilidades técnicas em quatro áreas fundamentais par
 - Docker-compose
 - FastAPI
 - Vue js
-- Git
+- Git - Utilização de duas branchs (dev,main)
 - Git LFS (Para otimização dos arquivos grandes CSVs)
 
-<br>
+
 
 ## ℹ️ Justificativas da escolha da linguagem
 
