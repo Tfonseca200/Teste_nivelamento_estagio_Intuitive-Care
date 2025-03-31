@@ -3,7 +3,7 @@ Query para pegar as 10 maiores despesas do último trimestre a partir do '2024-1
 
 Lógica: 
 - Baseada no cálculo (valor_final - valor_inicial)
-- Quanto maior o resultado, maior é a despesas da empresa
+- Quanto maior o resultado do (total_despesas) , maior é a despesas da empresa
 */
 
 SELECT 

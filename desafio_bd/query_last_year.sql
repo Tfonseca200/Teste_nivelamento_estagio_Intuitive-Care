@@ -1,3 +1,10 @@
+/*
+Query para pegar as 10 maiores despesas do último ano a partir do '2024-12-31'
+
+Lógica: 
+- Baseada no cálculo (valor_final - valor_inicial)
+- Quanto maior o resultado do (total_despesas) , maior é a despesas da empresa
+*/
 
 SELECT 
     ro.razao_social AS operadora, 
