@@ -1,14 +1,22 @@
 from fastapi import FastAPI , Query
+from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 import numpy as np
 
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:8080"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 CSV_FILE = './csv/Relatorio_cadop.csv'
-
 df = pd.read_csv(CSV_FILE, encoding="utf-8", delimiter= ';')
-
 df.replace({np.nan: None, np.inf: None, -np.inf: None}, inplace=True)
 
 @app.get("/buscar")
