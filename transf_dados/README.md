@@ -22,22 +22,22 @@ Conversão estruturada de dados do PDF "Anexo I" (Rol de Procedimentos em Saúde
 
 ## 📂 Estrutura de Arquivos
 ```plaintext
-/webscraping/
+/transf_dados/
 ├── __pycache__          
 ├── dados_entraidos.csv  # arquivo com csv extraido
 ├── main.py              # Script principal executavel
-├── README.md            # Documentação da pasta
+├── README.md            # Documentação do teste
 ├── Teste_{thiago}.zip   # Zip com os PDF compactas
 ├── trans_dados.py       # Scripts com a funções necessarias
 
 ```
 
-## ⚙ passo a passo pra rodar o script
+## ⚙ passo a passo pra rodar o teste transferencia de dados
 
 Entre na pasta transf_dados:
 
 ```bash
-cd webscraping/
+cd transf_dados/
 ```
 
 Execute o arquivo main.py
