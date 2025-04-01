@@ -111,7 +111,7 @@ Dependencias do projeto intalados!
 
 ## 🛜 Referências e fontes de informação
 
-W3 schools: https://www.w3schools.com<br>
+W3 schools (python, SQL): https://www.w3schools.com<br>
 FastAPI do Zero: https://fastapidozero.dunossauro.com<br>
 Iniciando com vue.js do zero:  https://medium.com/@thais.ribeiro/iniciando-com-vue-js-criando-um-projeto-do-zero-b62e159ca1a7<br>
 IA LLM: Para revisão de conceitos e pesquisas de libs
