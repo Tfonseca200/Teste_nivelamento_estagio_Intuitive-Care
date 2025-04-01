@@ -36,8 +36,6 @@ def extract_data_from_pdf(PDF_PATH, CSV_PATH):
 
 
         print("Dados de PDF extraindo para tabela estruturada em csv\n")
-        print(df.head())
-
 
 
 #função para compactar csv em zip

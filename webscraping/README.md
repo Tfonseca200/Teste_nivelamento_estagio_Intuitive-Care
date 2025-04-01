@@ -13,15 +13,15 @@ Url alvo: [https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-soci
 3. Compactar os arquivos em um único pacote
 
 
-## Pré-requisito
+## Pré-requisitos
 - Python
 
 ## Bibibliotecas python
 
-- os
-- request
-- urljoin
-- zipfile
+- os: manipula arquivos, diretórios e variáveis do sistema operacional
+- request: faz requisições HTTP.
+- urljoin: une partes de URLs de forma segura.
+- zipfile: lida com arquivos ZIP
 
 ## 📂 Estrutura de Arquivos
 ```plaintext
