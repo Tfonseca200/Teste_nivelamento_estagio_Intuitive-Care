@@ -10,7 +10,7 @@ Conversão estruturada de dados do PDF "Anexo I" (Rol de Procedimentos em Saúde
 4. Compactar em `Teste_{Nome}.zip`
 
 ## Pré-requisito
-- Python
+- Python 3+
 
 ## Bibibliotecas python
 

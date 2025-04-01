@@ -14,7 +14,7 @@ Url alvo: [https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-soci
 
 
 ## Pré-requisitos
-- Python
+- Python 3+
 
 ## Bibibliotecas python
 
@@ -30,11 +30,11 @@ Url alvo: [https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-soci
 ├── downloadsPdf         # Pasta do PDFs baixados
 ├── anexos.zip           # Zip com os PDFs compactas
 ├── main.py              # Script principal executavel
-├── README.md            # Documentação da pasta
+├── README.md            # Documentação do teste
 ├── web_scraping.py      # Scripts com a funções necessarias
 ```
 
-## ⚙ passo a passo pra rodar o script
+## ⚙ passo a passo pra rodar o teste Web Scraping
 
 Entre na pasta webScraping:
 
