@@ -37,7 +37,6 @@ def download_files(url, destination_folder):
 
 
 def compress_zip(zip_destination, destination_folder):
-    """Compacta todos os arquivos da pasta de destino em um arquivo ZIP."""
     items = os.listdir(destination_folder)
     files = [item for item in items if os.path.isfile(os.path.join(destination_folder, item))]
 

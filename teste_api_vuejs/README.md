@@ -195,6 +195,14 @@ Fazendo a mesma busca passada com o nome "AIRES OPERADORA DE SAUDE LTDA", mas ag
   <img src="../asserts/interface_busca.png" width="700">
 </p>
 
+<br>
+
+## Link pra volta pro README principal
+
+| README | Descrição |
+| --- | ------- |
+| [README principal](../README.md) | voltar ao README principal |
+
 
 
 

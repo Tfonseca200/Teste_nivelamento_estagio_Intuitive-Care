@@ -65,3 +65,11 @@ Abreviações trocadas:
 <p>
   <img src="../asserts/trocando_abreviacao.png" width="150">
 </p>
+
+<br>
+
+## Link pra volta pro README principal
+
+| README | Descrição |
+| --- | ------- |
+| [README principal](../README.md) | voltar ao README principal |
